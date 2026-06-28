@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر تطبيقات أندرويد X - الأقسام والأنماط</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>متجر تطبيقات أندرويد X</title>
     <style>
-        /* المتغيرات الأساسية للألوان لتسهيل التبديل */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -16,8 +16,6 @@
             --primary-hover: #00c853;
             --btn-text: #000000;
         }
-
-        /* ألوان الوضع النهاري */
         [data-theme="light"] {
             --bg-color: #f5f5f5;
             --card-bg: #ffffff;
@@ -28,46 +26,27 @@
             --primary-hover: #009624;
             --btn-text: #ffffff;
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
-        body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; }
-        
-        /* ترويسة الصفحة وزر التبديل */
-        header { text-align: center; margin-bottom: 30px; position: relative; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+        body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; text-align: center; }
+        header { margin-bottom: 30px; }
         h1 { color: var(--primary-color); margin-bottom: 10px; }
         p { color: var(--text-muted); font-size: 14px; }
-        
         .theme-toggle-container { display: flex; justify-content: flex-end; max-width: 1200px; margin: 0 auto 10px; }
-        .theme-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .theme-btn:hover { border-color: var(--primary-color); }
-
-        /* شريط البحث */
+        .theme-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; }
         .search-container { max-width: 500px; margin: 0 auto 20px; }
-        .search-box { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 16px; outline: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .search-box:focus { border-color: var(--primary-color); }
-
-        /* أزرار الأقسام */
+        .search-box { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 16px; outline: none; }
         .categories-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .category-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 14px; }
-        .category-btn:hover, .category-btn.active { background: var(--primary-color); color: var(--btn-text); font-weight: bold; border-color: var(--primary-color); }
-        
-        /* شبكة التطبيقات */
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        
-        /* كارت التطبيق */
-        .app-card { background: var(--card-bg); border-radius: 15px; padding: 15px; text-align: center; text-decoration: none; color: var(--text-color); display: block; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border-color); }
-        .app-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,230,118,0.15); border-color: var(--primary-color); }
+        .category-btn.active { background: var(--primary-color); color: var(--btn-text); font-weight: bold; }
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; text-align: right; }
+        .app-card { background: var(--card-bg); border-radius: 15px; padding: 15px; text-align: center; text-decoration: none; color: var(--text-color); display: block; border: 1px solid var(--border-color); }
         .app-icon { width: 80px; height: 80px; border-radius: 18px; object-fit: cover; margin-bottom: 12px; background: #2d2d2d; }
         .app-name { font-size: 14px; font-weight: bold; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        
-        /* زر التحميل */
         .download-btn { background: var(--border-color); color: var(--text-color); padding: 6px 15px; border-radius: 15px; font-size: 12px; font-weight: bold; display: inline-block; width: 100%; }
-        .app-card:hover .download-btn { background: var(--primary-color); color: var(--btn-text); }
     </style>
 </head>
 <body>
 
-    <!-- زر تبديل الوضع الاستايل -->
     <div class="theme-toggle-container">
         <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 الوضع الليلي</button>
     </div>
@@ -77,24 +56,20 @@
         <p>اكتشف وحمّل أفضل تطبيقات Android TV والشاشات الذكية</p>
     </header>
 
-    <!-- صندوق البحث -->
     <div class="search-container">
         <input type="text" id="search" class="search-box" placeholder="ابحث عن تطبيق معين...">
     </div>
 
-    <!-- أزرار تصفية الأقسام -->
-    <div class="categories-container" id="categoriesContainer">
+    <div class="categories-container">
         <button class="category-btn active" onclick="filterCategory('all', this)">الكل</button>
         <button class="category-btn" onclick="filterCategory('live', this)">بث مباشر</button>
         <button class="category-btn" onclick="filterCategory('movies', this)">أفلام ومسلسلات</button>
         <button class="category-btn" onclick="filterCategory('tools', this)">أدوات ونظام</button>
     </div>
 
-    <!-- شبكة عرض التطبيقات -->
     <div class="apps-grid" id="appsGrid"></div>
 
-    <script {nonce}>
-        // قاعدة بيانات التطبيقات
+    <script>
         const apps = [
             { name: "تطبيق ياسين TV", category: "live", icon: "https://placeholder.com", url: "https://example.com" },
             { name: "تطبيق الأسطورة", category: "live", icon: "https://placeholder.com", url: "https://example.com" },
@@ -110,7 +85,6 @@
         const themeToggleBtn = document.getElementById('themeToggle');
         let currentCategory = 'all';
 
-        // دالة عرض التطبيقات
         function displayApps(appsList) {
             appsGrid.innerHTML = "";
             if(appsList.length === 0) {
@@ -128,7 +102,6 @@
             });
         }
 
-        // دالة الفلترة عبر الأقسام
         function filterCategory(category, buttonElement) {
             currentCategory = category;
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
@@ -136,7 +109,6 @@
             applyFilter();
         }
 
-        // دالة دمج البحث والأقسام
         function applyFilter() {
             const searchTerm = searchInput.value.toLowerCase();
             const filtered = apps.filter(app => {
@@ -147,7 +119,6 @@
             displayApps(filtered);
         }
 
-        // إعدادات تبديل الأنماط (Dark / Light Mode)
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'light') {
@@ -161,7 +132,6 @@
             }
         }
 
-        // التحقق من الخيار المحفوظ مسبقاً في متصفح المستخدم
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
         if (savedTheme === 'light') {
@@ -170,7 +140,6 @@
             themeToggleBtn.innerHTML = "🌙 الوضع الليلي";
         }
 
-        // تشغيل المتجر عند التحميل أول مرة
         displayApps(apps);
         searchInput.addEventListener('input', applyFilter);
     </script>
