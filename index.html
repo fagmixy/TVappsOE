@@ -35,14 +35,23 @@
         .theme-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; }
         .search-container { max-width: 500px; margin: 0 auto 20px; }
         .search-box { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 16px; outline: none; }
+        
+        /* تعديل الأقسام وتوسيع الكارت للوصف */
         .categories-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .category-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 14px; }
         .category-btn.active { background: var(--primary-color); color: var(--btn-text); font-weight: bold; }
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; text-align: right; }
-        .app-card { background: var(--card-bg); border-radius: 15px; padding: 15px; text-align: center; text-decoration: none; color: var(--text-color); display: block; border: 1px solid var(--border-color); }
-        .app-icon { width: 80px; height: 80px; border-radius: 18px; object-fit: cover; margin-bottom: 12px; background: #2d2d2d; }
-        .app-name { font-size: 14px; font-weight: bold; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .download-btn { background: var(--border-color); color: var(--text-color); padding: 6px 15px; border-radius: 15px; font-size: 12px; font-weight: bold; display: inline-block; width: 100%; }
+        
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; text-align: right; }
+        .app-card { background: var(--card-bg); border-radius: 15px; padding: 20px; text-align: center; text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; border: 1px solid var(--border-color); }
+        .app-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .app-icon { width: 80px; height: 80px; border-radius: 18px; object-fit: cover; margin: 0 auto 12px; background: #2d2d2d; }
+        .app-name { font-size: 15px; font-weight: bold; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        /* تنسيق مكان الوصف الجديد */
+        .app-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; height: 50px; }
+        
+        .download-btn { background: var(--border-color); color: var(--text-color); padding: 6px 15px; border-radius: 15px; font-size: 12px; font-weight: bold; display: inline-block; width: 100%; margin-top: auto; }
+        .app-card:hover .download-btn { background: var(--primary-color); color: var(--btn-text); }
     </style>
 </head>
 <body>
@@ -69,15 +78,16 @@
 
     <div class="apps-grid" id="appsGrid"></div>
 
-    <script>
+    <script {nonce}>
+        // قاعدة البيانات مع إضافة الوصف description لكل تطبيق
         const apps = [
-            { name: "Sportzx_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/sportzx.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/SportzX_TV.apk" },
-            { name: "HdStreamz_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/hdstreamz.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/HDSTREAMZ_TV.apk" },
-            { name: "Cricfy_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/cricfy.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Cricfy_TV.apk" },
-            { name: "Rblive77_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/rblive77.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Rblive77_TV.apk" },
-            { name: "Geesports_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/geesports.jpg", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/GeeSports_TV.apk" },
-            { name: "TizenTube_TV", category: "stream", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/TizenTube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Tizentube.apk" },
-            { name: "SmartTube_TV", category: "stream", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/smarttube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/SmartTube.apk" }
+            { name: "Sportzx_TV", category: "live", description: "Live sports streaming application for Android TV and smart screens.", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/sportzx.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/SportzX_TV.apk" },
+            { name: "HdStreamz_TV", category: "live", description: "Watch your favorite live TV channels with high quality and multiple servers.", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/hdstreamz.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/HDSTREAMZ_TV.apk" },
+            { name: "Cricfy_TV", category: "live", description: "Excellent application for cricket and global live match broadcasting.", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/cricfy.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Cricfy_TV.apk" },
+            { name: "Rblive77_TV", category: "live", description: "Follow football events and major leagues directly on your device.", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/rblive77.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Rblive77_TV.apk" },
+            { name: "Geesports_TV", category: "live", description: "Sports channels and updates optimized for Android TV interfaces.", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/geesports.jpg", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/GeeSports_TV.apk" },
+            { name: "TizenTube_TV", category: "stream", description: "Alternative video streaming client with customized playback features.", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/TizenTube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Tizentube.apk" },
+            { name: "SmartTube_TV", category: "stream", description: "Advanced YouTube player for Android TV with ad-blocking features.", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/smarttube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/SmartTube.apk" }
         ];
 
         const appsGrid = document.getElementById('appsGrid');
@@ -85,6 +95,7 @@
         const themeToggleBtn = document.getElementById('themeToggle');
         let currentCategory = 'all';
 
+        // دالة العرض بعد إضافة وسم الوصف app-desc
         function displayApps(appsList) {
             appsGrid.innerHTML = "";
             if(appsList.length === 0) {
@@ -94,8 +105,11 @@
             appsList.forEach(app => {
                 appsGrid.innerHTML += `
                     <a href="${app.url}" class="app-card" target="_blank">
-                        <img src="${app.icon}" alt="${app.name}" class="app-icon">
-                        <div class="app-name">${app.name}</div>
+                        <div>
+                            <img src="${app.icon}" alt="${app.name}" class="app-icon">
+                            <div class="app-name">${app.name}</div>
+                            <div class="app-desc">${app.description || 'No description available for this app.'}</div>
+                        </div>
                         <span class="download-btn">Download APK</span>
                     </a>
                 `;
@@ -109,11 +123,12 @@
             applyFilter();
         }
 
+        // دالة الفلترة مع دعم البحث داخل الوصف أيضاً
         function applyFilter() {
             const searchTerm = searchInput.value.toLowerCase();
             const filtered = apps.filter(app => {
                 const matchesCategory = (currentCategory === 'all' || app.category === currentCategory);
-                const matchesSearch = app.name.toLowerCase().includes(searchTerm);
+                const matchesSearch = app.name.toLowerCase().includes(searchTerm) || (app.description && app.description.toLowerCase().includes(searchTerm));
                 return matchesCategory && matchesSearch;
             });
             displayApps(filtered);
@@ -137,11 +152,3 @@
         if (savedTheme === 'light') {
             themeToggleBtn.innerHTML = "☀️ Light Mode";
         } else {
-            themeToggleBtn.innerHTML = "🌙 Dark Mode";
-        }
-
-        displayApps(apps);
-        searchInput.addEventListener('input', applyFilter);
-    </script>
-</body>
-</html>
