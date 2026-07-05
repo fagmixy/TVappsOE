@@ -90,7 +90,7 @@
         function displayApps(appsList) {
             appsGrid.innerHTML = "";
             if(appsList.length === 0) {
-                appsGrid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:var(--text-muted); padding: 20px;'>لم يتم العثور على أي تطبيق</p>";
+                appsGrid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:var(--text-muted); padding: 20px;'>nothing</p>";
                 return;
             }
             appsList.forEach(app => {
