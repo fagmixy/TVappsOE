@@ -48,16 +48,16 @@
 <body>
 
     <div class="theme-toggle-container">
-        <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 الوضع الليلي</button>
+        <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
     </div>
 
     <header>
         <h1>تطبيقات AndroidTV</h1>
-        <p>Andoid TV Apps Oussama Echifa</p>
+        <p>Andoid TV Apps By Oussama Echifa</p>
     </header>
 
     <div class="search-container">
-        <input type="text" id="search" class="search-box" placeholder="ابحث عن تطبيق معين...">
+        <input type="text" id="search" class="search-box" placeholder="search">
     </div>
 
     <div class="categories-container">
@@ -123,11 +123,11 @@
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                themeToggleBtn.innerHTML = "🌙 الوضع الليلي";
+                themeToggleBtn.innerHTML = "🌙 Dark Mode";
                 localStorage.setItem('theme', 'dark');
             } else {
                 document.documentElement.setAttribute('data-theme', 'light');
-                themeToggleBtn.innerHTML = "☀️ الوضع النهاري";
+                themeToggleBtn.innerHTML = "☀️ Light Mode";
                 localStorage.setItem('theme', 'light');
             }
         }
@@ -135,9 +135,9 @@
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
         if (savedTheme === 'light') {
-            themeToggleBtn.innerHTML = "☀️ الوضع النهاري";
+            themeToggleBtn.innerHTML = "☀️ Light Mode";
         } else {
-            themeToggleBtn.innerHTML = "🌙 الوضع الليلي";
+            themeToggleBtn.innerHTML = "🌙 Dark Mode";
         }
 
         displayApps(apps);
