@@ -62,9 +62,9 @@
 
     <div class="categories-container">
         <button class="category-btn active" onclick="filterCategory('all', this)">الكل</button>
-        <button class="category-btn" onclick="filterCategory('live', this)">بث مباشر</button>
-        <button class="category-btn" onclick="filterCategory('movies', this)">أفلام ومسلسلات</button>
-        <button class="category-btn" onclick="filterCategory('tools', this)">أدوات ونظام</button>
+        <button class="category-btn" onclick="filterCategory('live', this)">LiveSport</button>
+        <button class="category-btn" onclick="filterCategory('movies', this)">Streaming</button>
+        <button class="category-btn" onclick="filterCategory('tools', this)">Tools</button>
     </div>
 
     <div class="apps-grid" id="appsGrid"></div>
@@ -96,7 +96,7 @@
                     <a href="${app.url}" class="app-card" target="_blank">
                         <img src="${app.icon}" alt="${app.name}" class="app-icon">
                         <div class="app-name">${app.name}</div>
-                        <span class="download-btn">تحميل APK</span>
+                        <span class="download-btn">Download APK</span>
                     </a>
                 `;
             });
