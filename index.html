@@ -75,16 +75,15 @@
         .category-btn:focus, .category-btn:hover { border-color: var(--primary-color); transform: scale(1.08); outline: none; box-shadow: 0 0 15px var(--focus-glow); }
         .category-btn.active { background: var(--primary-color); color: #000000; font-weight: 800; border-color: var(--primary-color); }
         
-        /* إجبار 4 تطبيقات ف السطر بصورة صارمة للشاشات الكبيرة */
+        /* إجبار 4 تطبيقات في السطر بصورة صارمة للشاشات الكبيرة */
         .apps-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 24px; max-width: 1280px; margin: 0 auto; padding: 15px; }
-        .app-card { background: var(--card-bg); border-radius: 20px; padding: 22px 16px; text-align: center; color: var(--text-color); display: flex; flex-direction: column; align-items: center; border: 3px solid var(--border-color); box-shadow: 0 8px 16px var(--shadow); position: relative; }
+        .app-card { background: var(--card-bg); border-radius: 24px; padding: 22px 18px; text-align: center; color: var(--text-color); display: flex; flex-direction: column; align-items: center; border: 3px solid var(--border-color); box-shadow: 0 8px 16px var(--shadow); position: relative; }
         .app-card:focus-within, .app-card:hover { transform: scale(1.05); border-color: var(--primary-color); box-shadow: 0 0 30px var(--focus-glow); outline: none; background: var(--card-hover-bg); }
         
         .verified-badge { color: var(--success-color); font-size: 12px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* إرجاع الأيقونات مربعة وعريضة كما كانت في الأصل بدقة عالية */
-        .app-icon { width: 100%; max-width: 100px; height: 60px; border-radius: 8px; object-fit: contain; margin-bottom: 15px; background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px; }
-        [data-theme="light"] .app-icon { background: #f3f4f6; border-color: #e5e7eb; }
+        /* جعل الإطار مربع كامل (1:1) متناسق مع الصورة المرسلة تماماً */
+        .app-icon { width: 100px; height: 100px; border-radius: 20px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.05); }
         
         .app-name { font-size: 18px; font-weight: 800; margin-bottom: 6px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ffffff; }
         [data-theme="light"] .app-name { color: var(--text-color); }
@@ -109,8 +108,8 @@
         @media (max-width: 768px) {
             body { padding: 20px 15px 15px; }
             .theme-toggle-container { position: static; margin-bottom: 20px; display: flex; justify-content: flex-end; }
-            .apps-grid { gap: 10px; grid-template-columns: repeat(2, 1fr) !important; }
-            .app-icon { max-width: 75px; height: 45px; }
+            .apps-grid { gap: 12px; grid-template-columns: repeat(2, 1fr) !important; }
+            .app-icon { width: 85px; height: 85px; border-radius: 16px; }
             .app-name { font-size: 15px; }
             .download-count { font-size: 11px; margin-bottom: 6px; }
             .app-desc { font-size: 11px; padding: 4px 6px; }
@@ -170,10 +169,15 @@
             { id: "Cricfy_TV.apk", name: "Cricfy_TV", category: "live", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/cricfy.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Cricfy_TV.apk", desc: "LiveSport - Safe" },
             { id: "Rblive77_TV.apk", name: "Rblive77_TV", category: "live", priority: 7, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/rblive77.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Rblive77_TV.apk", desc: "LiveSport - Safe" },
             { id: "GeeSports_TV.apk", name: "Geesports_TV", category: "live", priority: 6, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/geesports.jpg", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/GeeSports_TV.apk", desc: "LiveSport - Safe" },
+            
             { id: "Tizentube.apk", name: "TizenTube_TV", category: "stream", priority: 9, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/TizenTube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Tizentube.apk", desc: "Youtube No ADS" },
             { id: "SmartTube.apk", name: "SmartTube_TV", category: "stream", priority: 10, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/SmartTube.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/SmartTube.apk", desc: "Youtube No ADS" },
-            { id: "MovieBox_TV.apk", name: "Moviebox_TV", category: "stream", priority: 8, icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/moviebox.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/MovieBox_TV.apk", desc: "Streaming - Safe" },
+            
+            { id: "MovieBoxPro_TV.apk", name: "MovieBox Pro TV", category: "stream", priority: 8, icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/moviebox.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/MovieBoxPro_TV.apk", desc: "Streaming - Safe" },
+            { id: "MovieBox_TV.apk", name: "MovieBox TV", category: "stream", priority: 8, icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/moviebox.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/MovieBox_TV.apk", desc: "Streaming - Safe" },
+            
             { id: "cineplus_TV.apk", name: "CinePlus_TV", category: "stream", priority: 7, icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/CinePlus.jpg", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/cineplus_TV.apk", desc: "Streaming - Safe" }, 
+            
             { id: "XCIPTV_TV.apk", name: "XCIPTV_TV", category: "iptv", priority: 9, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/xciptv.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/XCIPTV_TV.apk", desc: "Player IPTV" },
             { id: "IPTVPRO_TV.apk", name: "IPTVPRO_TV", category: "iptv", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/iptvpro.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/IPTVPRO_TV.apk", desc: "Player IPTV" },
             { id: "M3UIPTV.apk", name: "M3UIPTV_TV", category: "iptv", priority: 7, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/m3uiptv.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/M3UIPTV.apk", desc: "Player IPTV" }              
