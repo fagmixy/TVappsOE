@@ -1,64 +1,154 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <title>AndroidTV Apps</title>
+    
+    <meta name="description" content="Download the best free Android TV apps. Streaming, IPTV, Live Sports and Tools for your Smart TV. Fast and safe downloads.">
+    <meta name="keywords" content="Android TV, Apps, IPTV, Streaming, APK Download, SportzX, SmartTube, Free TV Apps">
+    
+    <title>AndroidTV Apps Store | Official Download</title>
+
+    <!-- [هنا تحط كود الإعلانات ديال Popunder أو الـ Anti-Adblock (PropellerAds / Adsterra)] -->
+
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
+            /* Dark Mode */
+            --bg-color: #060913;
+            --card-bg: #101726;
             --text-color: #ffffff;
-            --text-muted: #aaa;
-            --border-color: #2d2d2d;
-            --primary-color: #ffeb3b;
-            --primary-hover: #fdd835;
-            --btn-text: #000000;
+            --text-muted: #a0aec0;
+            --border-color: #1e293b;
+            --primary-color: #ffee55; 
+            --primary-hover: #fff176;
+            --success-color: #4caf50;
+            --shadow: rgba(0, 0, 0, 0.6);
+            --card-hover-bg: #1a2438;
+            --focus-glow: rgba(255, 238, 85, 0.4);
         }
+
         [data-theme="light"] {
-            --bg-color: #f5f5f5;
+            /* Light Mode */
+            --bg-color: #f0f2f5;
             --card-bg: #ffffff;
-            --text-color: #333333;
-            --text-muted: #666;
-            --border-color: #e0e0e0;
-            --primary-color: #fbc02d;
-            --primary-hover: #f57f17;
-            --btn-text: #ffffff;
+            --text-color: #1a202c;
+            --text-muted: #718096;
+            --border-color: #cbd5e1;
+            --primary-color: #d97706; 
+            --primary-hover: #b45309;
+            --success-color: #16a34a;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --card-hover-bg: #f8fafc;
+            --focus-glow: rgba(217, 119, 6, 0.3);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
-        body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; text-align: center; }
-        header { margin-bottom: 30px; }
-        h1 { color: var(--primary-color); margin-bottom: 10px; }
-        p { color: var(--text-muted); font-size: 14px; }
-        .theme-toggle-container { display: flex; justify-content: flex-end; max-width: 1200px; margin: 0 auto 10px; }
-        .theme-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; }
-        .search-container { max-width: 500px; margin: 0 auto 20px; }
-        .search-box { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 16px; outline: none; }
-        .categories-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .category-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 14px; }
-        .category-btn.active { background: var(--primary-color); color: var(--btn-text); font-weight: bold; }
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; text-align: right; }
-        .app-card { background: var(--card-bg); border-radius: 15px; padding: 15px; text-align: center; text-decoration: none; color: var(--text-color); display: block; border: 1px solid var(--border-color); }
-        .app-icon { width: 80px; height: 80px; border-radius: 18px; object-fit: cover; margin-bottom: 12px; background: #2d2d2d; }
-        .app-name { font-size: 14px; font-weight: bold; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .app-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; min-height: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .download-btn { background: var(--border-color); color: var(--text-color); padding: 6px 15px; border-radius: 15px; font-size: 12px; font-weight: bold; display: inline-block; width: 100%; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; transition: background 0.3s, color 0.3s, transform 0.2s, border-color 0.3s, box-shadow 0.2s; }
+        body { background-color: var(--bg-color); color: var(--text-color); padding: 30px 40px; text-align: center; -webkit-font-smoothing: antialiased; }
+        
+        .theme-toggle-container { position: absolute; top: 25px; right: 40px; }
+        .theme-btn { background: var(--card-bg); border: 2px solid var(--border-color); color: var(--text-color); padding: 10px 18px; border-radius: 30px; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px var(--shadow); }
+        .theme-btn:focus, .theme-btn:hover { border-color: var(--primary-color); transform: scale(1.08); outline: none; box-shadow: 0 0 15px var(--focus-glow); }
+
+        header { margin: 20px auto 30px; max-width: 800px; }
+        h1 { font-size: 3.2rem; font-weight: 900; color: var(--text-color); margin-bottom: 5px; text-shadow: 0 4px 8px var(--shadow); letter-spacing: 1px; }
+        h1 span { color: var(--primary-color); }
+        .author-tag { font-size: 18px; color: var(--text-muted); margin-bottom: 25px; font-style: italic; font-weight: 600; }
+        
+        .downloader-guide { background: rgba(255, 238, 85, 0.05); border: 2px dashed var(--primary-color); border-radius: 16px; max-width: 750px; margin: 0 auto 30px; padding: 18px 24px; font-size: 16px; color: var(--text-color); line-height: 1.6; font-weight: 500; }
+        .downloader-code-badge { background: var(--primary-color); color: #000000; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 18px; margin: 0 4px; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        [data-theme="light"] .downloader-guide { background: rgba(217, 119, 6, 0.05); }
+
+        .contact-container { display: flex; justify-content: center; gap: 20px; margin: 10px auto 35px; max-width: 600px; }
+        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 25px; border-radius: 12px; font-size: 16px; font-weight: bold; text-decoration: none; color: #ffffff; flex: 1; box-shadow: 0 6px 15px rgba(0,0,0,0.3); border: 2px solid transparent; }
+        .contact-btn:focus, .contact-btn:hover { transform: scale(1.06); border-color: var(--text-color); outline: none; box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+        .btn-facebook { background-color: #1877f2; }
+        .btn-whatsapp { background-color: #25d366; }
+        .contact-icon { width: 20px; height: 20px; fill: white; }
+
+        .search-container { max-width: 600px; margin: 0 auto 30px; }
+        .search-box { width: 100%; padding: 16px 28px; border-radius: 40px; border: 3px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 20px; outline: none; text-align: center; box-shadow: 0 6px 12px var(--shadow); }
+        .search-box:focus { border-color: var(--primary-color); box-shadow: 0 0 20px var(--focus-glow); }
+
+        .categories-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+        .category-btn { background: var(--card-bg); color: var(--text-color); border: 2px solid var(--border-color); padding: 12px 26px; border-radius: 40px; cursor: pointer; font-size: 16px; font-weight: 700; box-shadow: 0 4px 6px var(--shadow); }
+        .category-btn:focus, .category-btn:hover { border-color: var(--primary-color); transform: scale(1.08); outline: none; box-shadow: 0 0 15px var(--focus-glow); }
+        .category-btn.active { background: var(--primary-color); color: #000000; font-weight: 800; border-color: var(--primary-color); }
+        
+        /* إجبار 4 تطبيقات ف السطر بصورة صارمة للشاشات الكبيرة */
+        .apps-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 24px; max-width: 1280px; margin: 0 auto; padding: 15px; }
+        .app-card { background: var(--card-bg); border-radius: 20px; padding: 22px 16px; text-align: center; color: var(--text-color); display: flex; flex-direction: column; align-items: center; border: 3px solid var(--border-color); box-shadow: 0 8px 16px var(--shadow); position: relative; }
+        .app-card:focus-within, .app-card:hover { transform: scale(1.05); border-color: var(--primary-color); box-shadow: 0 0 30px var(--focus-glow); outline: none; background: var(--card-hover-bg); }
+        
+        .verified-badge { color: var(--success-color); font-size: 12px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* إرجاع الأيقونات مربعة وعريضة كما كانت في الأصل بدقة عالية */
+        .app-icon { width: 100%; max-width: 100px; height: 60px; border-radius: 8px; object-fit: contain; margin-bottom: 15px; background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px; }
+        [data-theme="light"] .app-icon { background: #f3f4f6; border-color: #e5e7eb; }
+        
+        .app-name { font-size: 18px; font-weight: 800; margin-bottom: 6px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ffffff; }
+        [data-theme="light"] .app-name { color: var(--text-color); }
+        
+        .download-count { font-size: 13px; color: var(--success-color); font-weight: bold; margin-bottom: 10px; }
+        .app-desc { font-size: 13px; color: var(--text-color); background: rgba(255, 238, 85, 0.15); border: 1px solid var(--primary-color); padding: 6px 10px; border-radius: 8px; margin-bottom: 16px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 700; }
+        [data-theme="light"] .app-desc { background: rgba(217, 119, 6, 0.1); }
+        
+        .action-box { width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+        .download-btn { background: var(--primary-color); color: #000000; padding: 12px 10px; border-radius: 12px; font-size: 14px; font-weight: 800; display: inline-block; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
+        .download-btn:focus, .download-btn:hover { background: var(--text-color); color: var(--card-bg); outline: none; }
+        .download-btn.waiting { background: #f59e0b; color: #ffffff; cursor: not-allowed; }
+        
+        .footer-links { display: flex; justify-content: space-between; width: 100%; font-size: 12px; padding: 0 4px; margin-top: 5px; }
+        .share-btn, .report-btn { color: var(--text-muted); text-decoration: none; background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 600; }
+        .share-btn:focus, .share-btn:hover { color: var(--primary-color); outline: none; }
+        .report-btn:focus, .report-btn:hover { color: #ef4444; outline: none; }
+
+        .ad-banner-place { max-width: 728px; margin: 0 auto 25px; padding: 15px; background: rgba(255,255,255,0.02); border: 2px dashed var(--border-color); border-radius: 12px; color: var(--text-muted); font-size: 14px; display: none; }
+
+        /* تعديل للموبايل فقط ليصبح 2 في السطر لسهولة التصفح باللمس */
+        @media (max-width: 768px) {
+            body { padding: 20px 15px 15px; }
+            .theme-toggle-container { position: static; margin-bottom: 20px; display: flex; justify-content: flex-end; }
+            .apps-grid { gap: 10px; grid-template-columns: repeat(2, 1fr) !important; }
+            .app-icon { max-width: 75px; height: 45px; }
+            .app-name { font-size: 15px; }
+            .download-count { font-size: 11px; margin-bottom: 6px; }
+            .app-desc { font-size: 11px; padding: 4px 6px; }
+            .download-btn { font-size: 12px; padding: 10px 4px; }
+            h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
 
     <div class="theme-toggle-container">
-        <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+        <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">
+            <span id="themeIcon">🌙</span> <span id="themeText">Dark</span>
+        </button>
     </div>
 
     <header>
-        <h1>Android TV APPS </h1>
-        <p>Facebook: Oussama Echifa</p>
+        <h1>Android <span>TV APPS</span></h1>
+        <div class="author-tag">by Oussama Echifa</div>
     </header>
 
+    <div class="downloader-guide">
+        📺 <strong>Smart TV & Downloader Users:</strong> Open Downloader and enter code <span class="downloader-code-badge">2054839</span> to quickly revisit this store. Navigate using your remote and press <strong>OK</strong> to install any app secure and fast!
+    </div>
+
+    <div class="contact-container">
+        <a href="https://facebook.com/oussamaechifa" target="_blank" rel="noopener" class="contact-btn btn-facebook">
+            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+            Facebook
+        </a>
+        <a href="https://wa.me/212661119616" target="_blank" rel="noopener" class="contact-btn btn-whatsapp">
+            <svg class="contact-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.79-4.024l.32.19c1.54.915 3.31 1.4 5.125 1.401 5.442 0 9.865-4.42 9.869-9.86 0-2.636-1.026-5.115-2.89-6.982-1.864-1.866-4.341-2.893-6.979-2.893-5.451 0-9.875 4.422-9.879 9.865-.002 1.838.48 3.633 1.396 5.196l.21.357-1.015 3.703 3.793-.995z"/></svg>
+            WhatsApp
+        </a>
+    </div>
+
     <div class="search-container">
-        <input type="text" id="search" class="search-box" placeholder="search">
+        <input type="text" id="search" class="search-box" placeholder="🔍 Search for an app...">
     </div>
 
     <div class="categories-container">
@@ -69,55 +159,136 @@
         <button class="category-btn" onclick="filterCategory('tools', this)">Tools</button>
     </div>
 
+    <div class="ad-banner-place" id="adBanner"></div>
+
     <div class="apps-grid" id="appsGrid"></div>
 
     <script>
         const apps = [
-            { name: "Sportzx_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/sportzx.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/SportzX_TV.apk" },
-            { name: "HdStreamz_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/hdstreamz.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/HDSTREAMZ_TV.apk" },
-            { name: "Cricfy_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/cricfy.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Cricfy_TV.apk" },
-            { name: "Rblive77_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/rblive77.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Rblive77_TV.apk" },
-            { name: "Geesports_TV", category: "live", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/geesports.jpg", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/GeeSports_TV.apk" },
-            { name: "TizenTube_TV", category: "stream", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/TizenTube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/Tizentube.apk", desc: "Youtube No ADS" },
-            { name: "SmartTube_TV", category: "stream", icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/SmartTube.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/SmartTube.apk", desc: "Youtube No ADS" },
-            { name: "Moviebox_TV", category: "stream", icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/moviebox.png", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/MovieBox_TV.apk" },
-            { name: "CinePlus_TV", category: "stream", icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/CinePlus.jpg", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/cineplus_TV.apk" }, 
-            { name: "XCIPTV_TV", category: "iptv", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/xciptv.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/XCIPTV_TV.apk", desc: "PlayerIPTV" },
-            { name: "IPTVPRO_TV", category: "iptv", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/iptvpro.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/IPTVPRO_TV.apk", desc: "PlayerIPTV" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "XXXXXX", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "XXXXXX", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "XXXXXX", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "xxxxxx", category: "xxxxxx", icon: "xxxxxxx", url: "xxxxxxxxx", desc: "xxxxxx" },
-            { name: "M3UIPTV_TV", category: "iptv", icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/m3uiptv.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/apps/M3UIPTV.apk" }              
+            { id: "SportzX_TV.apk", name: "Sportzx_TV", category: "live", priority: 10, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/sportzx.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/SportzX_TV.apk", desc: "LiveSport - Safe" },
+            { id: "HDSTREAMZ_TV.apk", name: "HdStreamz_TV", category: "live", priority: 9, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/hdstreamz.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/HDSTREAMZ_TV.apk", desc: "LiveSport - Safe" },
+            { id: "Cricfy_TV.apk", name: "Cricfy_TV", category: "live", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/cricfy.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Cricfy_TV.apk", desc: "LiveSport - Safe" },
+            { id: "Rblive77_TV.apk", name: "Rblive77_TV", category: "live", priority: 7, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/rblive77.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Rblive77_TV.apk", desc: "LiveSport - Safe" },
+            { id: "GeeSports_TV.apk", name: "Geesports_TV", category: "live", priority: 6, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/geesports.jpg", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/GeeSports_TV.apk", desc: "LiveSport - Safe" },
+            { id: "Tizentube.apk", name: "TizenTube_TV", category: "stream", priority: 9, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/TizenTube.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Tizentube.apk", desc: "Youtube No ADS" },
+            { id: "SmartTube.apk", name: "SmartTube_TV", category: "stream", priority: 10, icon: "https://github.com/fagmixy/TVappsOE/raw/refs/heads/main/img/SmartTube.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/SmartTube.apk", desc: "Youtube No ADS" },
+            { id: "MovieBox_TV.apk", name: "Moviebox_TV", category: "stream", priority: 8, icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/moviebox.png", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/MovieBox_TV.apk", desc: "Streaming - Safe" },
+            { id: "cineplus_TV.apk", name: "CinePlus_TV", category: "stream", priority: 7, icon: "https://raw.githubusercontent.com/fagmixy/TVappsOE/refs/heads/main/img/CinePlus.jpg", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/cineplus_TV.apk", desc: "Streaming - Safe" }, 
+            { id: "XCIPTV_TV.apk", name: "XCIPTV_TV", category: "iptv", priority: 9, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/xciptv.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/XCIPTV_TV.apk", desc: "Player IPTV" },
+            { id: "IPTVPRO_TV.apk", name: "IPTVPRO_TV", category: "iptv", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/iptvpro.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/IPTVPRO_TV.apk", desc: "Player IPTV" },
+            { id: "M3UIPTV.apk", name: "M3UIPTV_TV", category: "iptv", priority: 7, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/m3uiptv.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/M3UIPTV.apk", desc: "Player IPTV" }              
         ];
+
+        apps.sort((a, b) => b.priority - a.priority);
 
         const appsGrid = document.getElementById('appsGrid');
         const searchInput = document.getElementById('search');
-        const themeToggleBtn = document.getElementById('themeToggle');
         let currentCategory = 'all';
+        let downloadStats = {}; 
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeButton(savedTheme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        }
+
+        function updateThemeButton(theme) {
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (theme === 'light') {
+                icon.innerText = '☀️';
+                text.innerText = 'Light';
+            } else {
+                icon.innerText = '🌙';
+                text.innerText = 'Dark';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { 
+            initTheme(); 
+            searchInput.focus(); 
+            fetchGitHubStats(); 
+        });
+
+        async function fetchGitHubStats() {
+            try {
+                const response = await fetch('https://api.github.com/repos/fagmixy/TVappsOE/releases');
+                const data = await response.json();
+                if (data && data.length > 0) {
+                    const assets = data[0].assets;
+                    assets.forEach(asset => {
+                        downloadStats[asset.name] = asset.download_count;
+                    });
+                    applyFilter(); 
+                }
+            } catch (error) {
+                console.log("Error fetching download stats:", error);
+            }
+        }
+
+        function startDownload(button, appUrl) {
+            if (button.classList.contains('waiting')) return;
+            
+            let timeLeft = 5; 
+            button.classList.add('waiting');
+            button.innerText = `Wait ${timeLeft}s...`;
+
+            const timer = setInterval(() => {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    button.classList.remove('waiting');
+                    button.innerText = "Download APK";
+                    
+                    const w = window.open(appUrl, '_blank', 'noopener,noreferrer');
+                    if (w) w.focus();
+                } else {
+                    button.innerText = `Wait ${timeLeft}s...`;
+                }
+            }, 1000);
+        }
+
+        function shareApp(appName, appUrl) {
+            const textToCopy = `Download ${appName} APK for Android TV here: ${appUrl}`;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert(`📋 Link for ${appName} copied to clipboard! Share it with your friends.`);
+            }).catch(err => {
+                console.log('Could not copy text: ', err);
+            });
+        }
 
         function displayApps(appsList) {
             appsGrid.innerHTML = "";
             if(appsList.length === 0) {
-                appsGrid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:var(--text-muted); padding: 20px;'>nothing</p>";
+                appsGrid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:var(--text-muted); padding: 20px; font-size:18px;'>No apps found.</p>";
                 return;
             }
             appsList.forEach(app => {
+                const count = downloadStats[app.id] !== undefined ? downloadStats[app.id] : 0;
                 appsGrid.innerHTML += `
-                    <a href="${app.url}" class="app-card" target="_blank">
+                    <div class="app-card" tabindex="0">
+                        <div class="verified-badge">✓ Verified Secure</div>
                         <img src="${app.icon}" alt="${app.name}" class="app-icon">
                         <div class="app-name">${app.name}</div>
+                        <div class="download-count">📥 ${count} Downloads</div>
                         <div class="app-desc">${app.desc}</div>
-                        <span class="download-btn">Download APK</span>
-                    </a>
+                        
+                        <div class="action-box">
+                            <button class="download-btn" onclick="startDownload(this, '${app.url}')">Download APK</button>
+                            <div class="footer-links">
+                                <button class="share-btn" onclick="shareApp('${app.name}', '${app.url}')">🔗 Share</button>
+                                <a href="https://wa.me/212661119616?text=Report:%20App%20${encodeURIComponent(app.name)}%20is%20broken" class="report-btn" target="_blank" rel="noopener">⚠️ Report</a>
+                            </div>
+                        </div>
+                    </div>
                 `;
             });
         }
@@ -139,29 +310,19 @@
             displayApps(filtered);
         }
 
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeToggleBtn.innerHTML = "🌙 Dark Mode";
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeToggleBtn.innerHTML = "☀️ Light Mode";
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'light') {
-            themeToggleBtn.innerHTML = "☀️ Light Mode";
-        } else {
-            themeToggleBtn.innerHTML = "🌙 Dark Mode";
-        }
-
         displayApps(apps);
         searchInput.addEventListener('input', applyFilter);
     </script>
+
+    <!-- Statcounter code for OEapps -->
+    <script type="text/javascript">
+    var sc_project=13335972; 
+    var sc_invisible=1; 
+    var sc_security="38bb0cc3"; 
+    </script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img class="statcounter"
+    src="https://c.statcounter.com/13335972/0/38bb0cc3/1/" alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 </body>
 </html>
