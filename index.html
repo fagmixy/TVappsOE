@@ -75,45 +75,49 @@
         .category-btn:focus, .category-btn:hover { border-color: var(--primary-color); transform: scale(1.08); outline: none; box-shadow: 0 0 15px var(--focus-glow); }
         .category-btn.active { background: var(--primary-color); color: #000000; font-weight: 800; border-color: var(--primary-color); }
         
-        /* إجبار 4 تطبيقات في السطر بصورة صارمة للشاشات الكبيرة */
-        .apps-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 24px; max-width: 1280px; margin: 0 auto; padding: 15px; }
-        .app-card { background: var(--card-bg); border-radius: 24px; padding: 22px 18px; text-align: center; color: var(--text-color); display: flex; flex-direction: column; align-items: center; border: 3px solid var(--border-color); box-shadow: 0 8px 16px var(--shadow); position: relative; }
-        .app-card:focus-within, .app-card:hover { transform: scale(1.05); border-color: var(--primary-color); box-shadow: 0 0 30px var(--focus-glow); outline: none; background: var(--card-hover-bg); }
+        /* إجبار 6 تطبيقات في السطر بصورة صارمة للشاشات الكبيرة */
+        .apps-grid { display: grid !important; grid-template-columns: repeat(6, 1fr) !important; gap: 16px; max-width: 1400px; margin: 0 auto; padding: 15px; }
+        .app-card { background: var(--card-bg); border-radius: 20px; padding: 16px 12px; text-align: center; color: var(--text-color); display: flex; flex-direction: column; align-items: center; border: 2px solid var(--border-color); box-shadow: 0 6px 12px var(--shadow); position: relative; }
+        .app-card:focus-within, .app-card:hover { transform: scale(1.05); border-color: var(--primary-color); box-shadow: 0 0 25px var(--focus-glow); outline: none; background: var(--card-hover-bg); }
         
-        .verified-badge { color: var(--success-color); font-size: 12px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .verified-badge { color: var(--success-color); font-size: 10px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* جعل الإطار مربع كامل (1:1) متناسق مع الصورة المرسلة تماماً */
-        .app-icon { width: 100px; height: 100px; border-radius: 20px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        /* تقليص حجم الصورة قليلاً لتتناسب مع تقسيم 6 أعمدة */
+        .app-icon { width: 80px; height: 80px; border-radius: 16px; object-fit: cover; margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.05); }
         
-        .app-name { font-size: 18px; font-weight: 800; margin-bottom: 6px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ffffff; }
+        .app-name { font-size: 15px; font-weight: 800; margin-bottom: 4px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ffffff; }
         [data-theme="light"] .app-name { color: var(--text-color); }
         
-        .download-count { font-size: 13px; color: var(--success-color); font-weight: bold; margin-bottom: 10px; }
-        .app-desc { font-size: 13px; color: var(--text-color); background: rgba(255, 238, 85, 0.15); border: 1px solid var(--primary-color); padding: 6px 10px; border-radius: 8px; margin-bottom: 16px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 700; }
+        .download-count { font-size: 11px; color: var(--success-color); font-weight: bold; margin-bottom: 8px; }
+        .app-desc { font-size: 11px; color: var(--text-color); background: rgba(255, 238, 85, 0.15); border: 1px solid var(--primary-color); padding: 4px 8px; border-radius: 6px; margin-bottom: 12px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 700; }
         [data-theme="light"] .app-desc { background: rgba(217, 119, 6, 0.1); }
         
-        .action-box { width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
-        .download-btn { background: var(--primary-color); color: #000000; padding: 12px 10px; border-radius: 12px; font-size: 14px; font-weight: 800; display: inline-block; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
+        .action-box { width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
+        .download-btn { background: var(--primary-color); color: #000000; padding: 10px 8px; border-radius: 10px; font-size: 12px; font-weight: 800; display: inline-block; width: 100%; box-shadow: 0 3px 6px rgba(0,0,0,0.2); text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
         .download-btn:focus, .download-btn:hover { background: var(--text-color); color: var(--card-bg); outline: none; }
         .download-btn.waiting { background: #f59e0b; color: #ffffff; cursor: not-allowed; }
         
-        .footer-links { display: flex; justify-content: space-between; width: 100%; font-size: 12px; padding: 0 4px; margin-top: 5px; }
-        .share-btn, .report-btn { color: var(--text-muted); text-decoration: none; background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 600; }
+        .footer-links { display: flex; justify-content: space-between; width: 100%; font-size: 11px; padding: 0 2px; margin-top: 4px; }
+        .share-btn, .report-btn { color: var(--text-muted); text-decoration: none; background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 600; }
         .share-btn:focus, .share-btn:hover { color: var(--primary-color); outline: none; }
         .report-btn:focus, .report-btn:hover { color: #ef4444; outline: none; }
 
         .ad-banner-place { max-width: 728px; margin: 0 auto 25px; padding: 15px; background: rgba(255,255,255,0.02); border: 2px dashed var(--border-color); border-radius: 12px; color: var(--text-muted); font-size: 14px; display: none; }
 
-        /* تعديل للموبايل فقط ليصبح 2 في السطر لسهولة التصفح باللمس */
+        /* تعديل للموبايل ليصبح 3 في السطر بدل 2 ليكون متناسقاً */
         @media (max-width: 768px) {
             body { padding: 20px 15px 15px; }
             .theme-toggle-container { position: static; margin-bottom: 20px; display: flex; justify-content: flex-end; }
-            .apps-grid { gap: 12px; grid-template-columns: repeat(2, 1fr) !important; }
-            .app-icon { width: 85px; height: 85px; border-radius: 16px; }
-            .app-name { font-size: 15px; }
-            .download-count { font-size: 11px; margin-bottom: 6px; }
-            .app-desc { font-size: 11px; padding: 4px 6px; }
-            .download-btn { font-size: 12px; padding: 10px 4px; }
+            .apps-grid { gap: 8px; grid-template-columns: repeat(3, 1fr) !important; padding: 5px; }
+            .app-card { padding: 10px 6px; border-radius: 14px; }
+            .app-icon { width: 55px; height: 55px; border-radius: 10px; margin-bottom: 8px; }
+            .app-name { font-size: 11px; }
+            .verified-badge { font-size: 8px; margin-bottom: 4px; }
+            .download-count { font-size: 9px; margin-bottom: 4px; }
+            .app-desc { font-size: 9px; padding: 2px 4px; border-radius: 4px; margin-bottom: 8px; }
+            .download-btn { font-size: 9px; padding: 8px 2px; border-radius: 6px; }
+            .footer-links { font-size: 9px; }
+            .share-btn, .report-btn { font-size: 9px; }
             h1 { font-size: 2.2rem; }
         }
     </style>
@@ -132,7 +136,7 @@
     </header>
 
     <div class="downloader-guide">
-        📺 <strong>Android & Google TV & Downloader Users:</strong> Open Downloader and enter code <span class="downloader-code-badge">2054839</span> to quickly revisit this store. Navigate using your remote and press <strong>OK</strong> to install any app secure and fast!
+        📺 <strong>Android & Google TV & Downloader Codes:</strong> Open Downloader and enter code <span class="downloader-code-badge">2054839</span> or <span class="downloader-code-badge">9162510</span> to quickly revisit this store. Navigate using your remote and press <strong>OK</strong> to install any app secure and fast!
     </div>
 
     <div class="contact-container">
