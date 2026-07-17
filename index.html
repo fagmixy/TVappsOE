@@ -76,14 +76,12 @@
         .category-btn:focus, .category-btn:hover { border-color: var(--primary-color); transform: scale(1.08); outline: none; box-shadow: 0 0 15px var(--focus-glow); }
         .category-btn.active { background: var(--primary-color); color: #000000; font-weight: 800; border-color: var(--primary-color); }
         
-        /* إجبار 6 تطبيقات في السطر بصورة صارمة للشاشات الكبيرة */
         .apps-grid { display: grid !important; grid-template-columns: repeat(6, 1fr) !important; gap: 16px; max-width: 1400px; margin: 0 auto; padding: 15px; }
         .app-card { background: var(--card-bg); border-radius: 20px; padding: 16px 12px; text-align: center; color: var(--text-color); display: flex; flex-direction: column; align-items: center; border: 2px solid var(--border-color); box-shadow: 0 6px 12px var(--shadow); position: relative; }
         .app-card:focus-within, .app-card:hover { transform: scale(1.05); border-color: var(--primary-color); box-shadow: 0 0 25px var(--focus-glow); outline: none; background: var(--card-hover-bg); }
         
         .verified-badge { color: var(--success-color); font-size: 10px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* تقليص حجم الصورة قليلاً لتتناسب مع تقسيم 6 أعمدة */
         .app-icon { width: 80px; height: 80px; border-radius: 16px; object-fit: cover; margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.05); }
         
         .app-name { font-size: 15px; font-weight: 800; margin-bottom: 4px; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ffffff; }
@@ -94,7 +92,9 @@
         [data-theme="light"] .app-desc { background: rgba(217, 119, 6, 0.1); }
         
         .action-box { width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
-        .download-btn { background: var(--primary-color); color: #000000; padding: 10px 8px; border-radius: 10px; font-size: 12px; font-weight: 800; display: inline-block; width: 100%; box-shadow: 0 3px 6px rgba(0,0,0,0.2); text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* تعديل الزر ليصبح رابط متناسق */
+        .download-btn { background: var(--primary-color); color: #000000; padding: 10px 8px; border-radius: 10px; font-size: 12px; font-weight: 800; display: block; width: 100%; box-shadow: 0 3px 6px rgba(0,0,0,0.2); text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; }
         .download-btn:focus, .download-btn:hover { background: var(--text-color); color: var(--card-bg); outline: none; }
         
         .footer-links { display: flex; justify-content: space-between; width: 100%; font-size: 11px; padding: 0 2px; margin-top: 4px; }
@@ -104,7 +104,6 @@
 
         .ad-banner-place { max-width: 728px; margin: 0 auto 25px; padding: 15px; background: rgba(255,255,255,0.02); border: 2px dashed var(--border-color); border-radius: 12px; color: var(--text-muted); font-size: 14px; display: none; }
 
-        /* تعديل للموبايل ليصبح 3 في السطر بدل 2 ليكون متناسقاً */
         @media (max-width: 768px) {
             body { padding: 20px 15px 15px; }
             .theme-toggle-container { position: static; margin-bottom: 20px; display: flex; justify-content: flex-end; }
@@ -187,7 +186,7 @@
             { id: "MXPlayerPro.apk", name: "MXPlayerPro_TV", category: "stream", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/mxplayerpro.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/MXPlayerPro.apk", desc: "Video Player" },           
             { id: "NoTube.apk", name: "NoTube_TV", category: "stream", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/notube.jpg?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/NoTube.apk", desc: "Youtube No ADS" },
             { id: "Tevegram.apk", name: "Tevegram Premium_TV", category: "stream", priority: 8, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/tevegram.webp?raw=true?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/Tevegram.apk", desc: "Streaming Videos" },           
-            { id: "M3UIPTV.apk", name: "M3UIPTV_TV", category: "iptv", priority: 7, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/m3uiptv.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/M3UIPTV.apk", desc: "Player IPTV" }              
+            { id: "M3UIPTV.apk", name: "M3UIPTV_TV", category: "iptv", priority: 7, icon: "https://github.com/fagmixy/TVappsOE/blob/main/img/m3uiptv.png?raw=true", url: "https://github.com/fagmixy/TVappsOE/releases/download/v1.0/M3UIPTV.apk", desc: "Player IPTV" }             
         ];
 
         apps.sort((a, b) => b.priority - a.priority);
@@ -245,13 +244,6 @@
             }
         }
 
-        // تم تغيير هاد الجزء باش يتفادى البلوك ديال المتصفحات ويبدا التحميل ديريكتومون
-        function startDownload(appUrl) {
-            // فتح رابط تحميل الـ APK بشكل مباشر فـ نافذة جديدة آمنة ومضمونة
-            const w = window.open(appUrl, '_blank', 'noopener,noreferrer');
-            if (w) w.focus();
-        }
-
         function shareApp(appName, appUrl) {
             const textToCopy = `Download ${appName} APK for Android & Google TV here: ${appUrl}`;
             navigator.clipboard.writeText(textToCopy).then(() => {
@@ -278,8 +270,8 @@
                         <div class="app-desc">${app.desc}</div>
                         
                         <div class="action-box">
-                            <!-- التعديل تم هنا أيضا لتمرير الرابط فقط -->
-                            <button class="download-btn" onclick="startDownload('${app.url}')">Download APK</button>
+                            <!-- تم التعديل هنا ليعمل كـرابط تحميل مباشر وآمن متوافق مع جميع المتصفحات -->
+                            <a class="download-btn" href="${app.url}" download="${app.id}">Download APK</a>
                             <div class="footer-links">
                                 <button class="share-btn" onclick="shareApp('${app.name}', '${app.url}')">🔗 Share</button>
                                 <a href="https://wa.me/212661119616?text=Report:%20App%20${encodeURIComponent(app.name)}%20is%20broken" class="report-btn" target="_blank" rel="noopener">⚠️ Report</a>
