@@ -10,7 +10,7 @@
     
     <title>AndroidTV Apps Store | Official Download</title>
 
-    <!-- كود الإعلانات اللي عطيتيني محطوط هنا نيشان -->
+    <!-- كود الإعلانات -->
     <script src="https://pl30405169.effectivecpmnetwork.com/42/cd/93/42cd938238f4abb504ee68c35d5435de.js"></script>
 
     <style>
@@ -96,7 +96,6 @@
         .action-box { width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
         .download-btn { background: var(--primary-color); color: #000000; padding: 10px 8px; border-radius: 10px; font-size: 12px; font-weight: 800; display: inline-block; width: 100%; box-shadow: 0 3px 6px rgba(0,0,0,0.2); text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
         .download-btn:focus, .download-btn:hover { background: var(--text-color); color: var(--card-bg); outline: none; }
-        .download-btn.waiting { background: #f59e0b; color: #ffffff; cursor: not-allowed; }
         
         .footer-links { display: flex; justify-content: space-between; width: 100%; font-size: 11px; padding: 0 2px; margin-top: 4px; }
         .share-btn, .report-btn { color: var(--text-muted); text-decoration: none; background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 600; }
@@ -246,26 +245,11 @@
             }
         }
 
-        function startDownload(button, appUrl) {
-            if (button.classList.contains('waiting')) return;
-            
-            let timeLeft = 5; 
-            button.classList.add('waiting');
-            button.innerText = `Wait ${timeLeft}s...`;
-
-            const timer = setInterval(() => {
-                timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    button.classList.remove('waiting');
-                    button.innerText = "Download APK";
-                    
-                    const w = window.open(appUrl, '_blank', 'noopener,noreferrer');
-                    if (w) w.focus();
-                } else {
-                    button.innerText = `Wait ${timeLeft}s...`;
-                }
-            }, 1000);
+        // تم تغيير هاد الجزء باش يتفادى البلوك ديال المتصفحات ويبدا التحميل ديريكتومون
+        function startDownload(appUrl) {
+            // فتح رابط تحميل الـ APK بشكل مباشر فـ نافذة جديدة آمنة ومضمونة
+            const w = window.open(appUrl, '_blank', 'noopener,noreferrer');
+            if (w) w.focus();
         }
 
         function shareApp(appName, appUrl) {
@@ -294,7 +278,8 @@
                         <div class="app-desc">${app.desc}</div>
                         
                         <div class="action-box">
-                            <button class="download-btn" onclick="startDownload(this, '${app.url}')">Download APK</button>
+                            <!-- التعديل تم هنا أيضا لتمرير الرابط فقط -->
+                            <button class="download-btn" onclick="startDownload('${app.url}')">Download APK</button>
                             <div class="footer-links">
                                 <button class="share-btn" onclick="shareApp('${app.name}', '${app.url}')">🔗 Share</button>
                                 <a href="https://wa.me/212661119616?text=Report:%20App%20${encodeURIComponent(app.name)}%20is%20broken" class="report-btn" target="_blank" rel="noopener">⚠️ Report</a>
